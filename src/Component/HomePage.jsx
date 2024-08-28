@@ -30,6 +30,7 @@ const HomePage = () => {
       setLoading(false);
     };
 
+
     return () => {
       ws.close();
     };
@@ -37,44 +38,44 @@ const HomePage = () => {
 
   return (
     <div className="pt-20 md:flex md:justify-between md:bg-blue-900 rounded-sm">
-      <section className="bg-blue-900 text-white text-center p-2 rounded-md md:ml-40">
+      <section className="bg-blue-900 text-white text-center p-2 rounded-md md:ml-40 ">
         <div className='md:mt-52'>
           <p className='md:text-3xl md:font-bold'>Welcome to CryptoVerse,</p>
           <p className='md:font-bold'>Your Crypto Companion...!!</p>
         </div>
       </section>
 
+
       <section className="mt-2 border-2 md:bg-white md:rounded-lg md:mr-3">
         <p className="mt-2">Top 10 Trending Cryptos by Volume</p>
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="table-fixed w-full text-center">
-              <thead>
-                <tr className="border-b">
-                  <th className="w-1/12 px-4 py-2">#</th>
-                  <th className="w-3/12 px-4 py-2">Coin</th>
-                  <th className="w-3/12 px-4 py-2">Price</th>
-                  <th className="w-4/12 px-4 py-2">Volume</th>
-                  <th className="w-1/12 px-2 py-2">Change (%)</th>
+          <table className=" text-center">
+            <thead>
+              <tr className="border-b">
+                <th className="px-4 py-2">#</th>
+                <th className="px-4 py-2">Coin</th>
+                <th className="px-4 py-2">Price</th>
+                <th className="px-4 py-2">Volume</th>
+                <th className="px-4 py-2">Change (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cryptoData.map((coin) => (
+                <tr key={coin.id} className="border-b">
+                  <td className="px-4 py-2">{coin.id}</td>
+                  <td className="px-4 py-2">{coin.name}</td>
+                  <td className="px-4 py-2">${coin.price}</td>
+                  <td className="">{coin.volume}</td>
+                  <td className={` ${coin.change >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                    {coin.change}%
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {cryptoData.map((coin) => (
-                  <tr key={coin.id} className="border-b">
-                    <td className="px-4 py-2">{coin.id}</td>
-                    <td className="px-4 py-2">{coin.name}</td>
-                    <td className="px-4 py-2">${coin.price}</td>
-                    <td className="px-4 py-2">{coin.volume}</td>
-                    <td className={`px-2 py-2 text-sm ${coin.change >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-                      {coin.change}%
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+
+          </table>
         )}
       </section>
     </div>
