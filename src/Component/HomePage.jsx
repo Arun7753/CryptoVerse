@@ -64,13 +64,11 @@ const HomePage = () => {
             <tbody>
               {cryptoData.map((coin) => (
                 <tr key={coin.id} className="border-b">
-                  <td className="px-4 py-2">{coin.id}</td>
-                  <td className="px-4 py-2">{coin.name}</td>
-                  <td className="px-4 py-2">${coin.price}</td>
+                  <td className="">{coin.id}</td>
+                  <td className="">{coin.name}</td>
+                  <td className="px-2 py-2">${coin.price}</td>
                   <td className="">{coin.volume}</td>
-                  <td className={` ${coin.change >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-                    {coin.change}%
-                  </td>
+                  <td className={` ${coin.change >= 0 ? 'text-green-500' : 'text-red-500'}`}>{coin.change}</td>
                 </tr>
               ))}
             </tbody>
