@@ -46,7 +46,7 @@ const HomePage = () => {
       </section>
 
 
-      <section className="mt-2 border-2 md:bg-white md:rounded-lg md:mr-3">
+      <section className="mt-2 border-2 md:bg-white md:rounded-lg md:mr-3 overflow-x-auto">
         <p className="mt-2">Top 10 Trending Cryptos by Volume</p>
         {loading ? (
           <p>Loading...</p>
